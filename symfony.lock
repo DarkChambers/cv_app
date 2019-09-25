@@ -115,6 +115,9 @@
     "psr/log": {
         "version": "1.1.0"
     },
+    "snilius/twig-sort-by-field": {
+        "version": "v0.1.5"
+    },
     "symfony/asset": {
         "version": "v4.3.4"
     },

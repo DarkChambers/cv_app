@@ -30,6 +30,7 @@ class Cv
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="cv")
+     * @ORM\OrderBy({"display_order" = "ASC"})
      */
     private $experiences;
 
@@ -96,5 +97,8 @@ class Cv
         }
 
         return $this;
+    }
+    public function __toString() {
+        return $this->getTitle();
     }
 }
