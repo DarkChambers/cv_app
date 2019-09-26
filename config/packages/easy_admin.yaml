@@ -3,4 +3,5 @@ easy_admin:
 #        # List the entity class name you want to manage
         - App\Entity\Cv
         - App\Entity\Experience
+        - App\Entity\Formation
 

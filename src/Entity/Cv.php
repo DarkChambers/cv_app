@@ -34,9 +34,15 @@ class Cv
      */
     private $experiences;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Formation", mappedBy="cv")
+     */
+    private $formations;
+
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
+        $this->formations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,5 +106,36 @@ class Cv
     }
     public function __toString() {
         return $this->getTitle();
+    }
+
+    /**
+     * @return Collection|Formation[]
+     */
+    public function getFormations(): Collection
+    {
+        return $this->formations;
+    }
+
+    public function addFormation(Formation $formation): self
+    {
+        if (!$this->formations->contains($formation)) {
+            $this->formations[] = $formation;
+            $formation->setCv($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(Formation $formation): self
+    {
+        if ($this->formations->contains($formation)) {
+            $this->formations->removeElement($formation);
+            // set the owning side to null (unless already changed)
+            if ($formation->getCv() === $this) {
+                $formation->setCv(null);
+            }
+        }
+
+        return $this;
     }
 }
