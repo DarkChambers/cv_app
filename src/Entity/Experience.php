@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+// ToDo add constraints as Assert
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
