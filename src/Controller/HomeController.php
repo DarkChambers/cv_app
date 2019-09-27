@@ -20,12 +20,12 @@ class HomeController extends AbstractController{
 
         // ToDo get all informations from the default CV  and pass it to the view
 
-        // first check wich cv is define by default
+        // first check which cv is define by default
 
         // second get all information from the CV
 
         $repository = $this->getDoctrine()->getRepository(Cv::class);
-        $cv =new Cv();
+        //$cv =new Cv();
         $cv = $repository->find(3);
 
         return $this->render('home\index.html.twig',["cv"=>$cv]);

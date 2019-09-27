@@ -30,12 +30,12 @@
         <div class="content-center">
          <div class="cc-profile-image"><a href="#"><img src="images/christophe.jpg" alt="Image"/></a></div>
          <div class="h2 title">Monteil Christophe</div>
-         <p class="category text-white">{{ cv.title }}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez-moi !</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+         <p class="category text-white">{% if (cv.title is defined) and (cv.title is not null) %}{{ cv.title }}{% endif %}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez-moi !</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
         </div>
        </div>
        <div class="section">
         <div class="container">
-         <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi Facebook"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+         <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi Facebook"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Instagram"><i class="fa fa-instagram"></i></a></div>
         </div>
        </div>
       </div>
@@ -162,20 +162,15 @@
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
              <figure class="cc-effect"><img src="images/project-1.jpg" alt="Image"/>
               <figcaption>
-
-               <div class="h4">Projet recent</div>
+               <div class="h4">Projet r&eacutecent</div>
                <p>ASP.NET MVC APP</p>
-
               </figcaption>
              </figure></a></div>
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
              <figure class="cc-effect"><img src="images/project-2.jpg" alt="Image"/>
               <figcaption>
-
                <div class="h4">Startup Project</div>
                <p>RetroStory Games Company</p>
-
-
               </figcaption>
              </figure></a></div>
           </div>
@@ -183,19 +178,15 @@
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
              <figure class="cc-effect"><img src="images/project-3.jpg" alt="Image"/>
               <figcaption>
-
                <div class="h4">On Dev !</div>
                <p>Be Smarter App !</p>
-
               </figcaption>
              </figure></a></div>
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
              <figure class="cc-effect"><img src="images/project-4.jpg" alt="Image"/>
               <figcaption>
-
-               <div class="h4">On dev ! </div>
+               <div class="h4">On Dev !</div>
                <p>Be Sporty App !</p>
-
               </figcaption>
              </figure></a></div>
           </div>
@@ -247,15 +238,15 @@
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-1.jpg" alt="Image"/>
               <figcaption>
-               <div class="h4">Photoshoot</div>
-               <p>Photography</p>
+               <div class="h4">Photoshop</div>
+               <p>Montage</p>
               </figcaption>
              </figure></a></div>
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image"/>
               <figcaption>
-               <div class="h4">Wedding Photoshoot</div>
-               <p>Photography</p>
+               <div class="h4">LightRoom</div>
+               <p>Black&White</p>
               </figcaption>
              </figure></a></div>
           </div>
@@ -263,15 +254,15 @@
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-2.jpg" alt="Image"/>
               <figcaption>
-               <div class="h4">Beach Photoshoot</div>
-               <p>Photography</p>
+               <div class="h4">LightRoom</div>
+               <p>Before&After</p>
               </figcaption>
              </figure></a></div>
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image"/>
               <figcaption>
-               <div class="h4">Nature Photoshoot</div>
-               <p>Photography</p>
+               <div class="h4">LightRoom</div>
+               <p>Nature</p>
               </figcaption>
              </figure></a></div>
           </div>
@@ -286,6 +277,7 @@
       <div class="h4 text-center mb-4 title">Exp&eacuteriences Professionnelles</div>
   {#sort by experience#}
       {% for experience in cv.experiences %}
+       {% if (experience is defined) and (experience is not null) %}
        <div class="card">
         <div class="row">
          <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
@@ -302,63 +294,37 @@
          </div>
         </div>
        </div>
+       {% endif %}
       {% endfor %}
-
+     </div>
+    </div>
     <div class="section">
      <div class="container cc-education">
       <div class="h4 text-center mb-4 title">Formations</div>
-      <div class="card">
-       <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body cc-education-header">
-          <p>2018 - 2019</p>
-          <div class="h5">CDA - Bac+4</div>
+
+      {% for formation in cv.formations %}
+       {% if (formation is defined) and (formation is not null) %}
+        <div class="card">
+         <div class="row">
+          <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+           <div class="card-body cc-education-header">
+            <p>2018 - 2019</p>
+            <div class="h5">{{ formation.degree }}</div>
+           </div>
+          </div>
+          <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+           <div class="card-body">
+            <div class="h5">{{ formation.title }}</div>
+            <p class="category">{{ formation.school }}</p>
+            <p>{{ formation.content }}</p>
+           </div>
+          </div>
          </div>
         </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body">
-          <div class="h5">Concepteur d&eacuteveloppeur d'applications</div>
-          <p class="category">M2ii Formations</p>
-          <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="card">
-       <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body cc-education-header">
-          <p>2009 - 2013</p>
-          <div class="h5">DEUST AMI</div>
-         </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body">
-          <div class="h5">DEUST Administration des Moyens Informatiques</div>
-          <p class="category">IUT de Caucriauville</p>
-          <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="card">
-       <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body cc-education-header">
-          <p>1999 - 2000</p>
-          <div class="h5">Maîtrise de Géographie</div>
-         </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-         <div class="card-body">
-          <div class="h5">Maîtrise en Géographie de la santé</div>
-          <p class="category">France - Bénin</p>
-          <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
+       {% endif %}
+
+      {% endfor %}
+    </div>
     </div>
     <div class="section" id="reference">
      <div class="container cc-reference">

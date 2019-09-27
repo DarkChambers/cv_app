@@ -4,4 +4,5 @@ easy_admin:
         - App\Entity\Cv
         - App\Entity\Experience
         - App\Entity\Formation
+        - App\Entity\Skill
 
