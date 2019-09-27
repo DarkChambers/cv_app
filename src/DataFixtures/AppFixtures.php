@@ -9,6 +9,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        // ToDo add Fixtures
         // $product = new Product();
         // $manager->persist($product);
 
