@@ -14,4 +14,20 @@ class AppFixtures extends Fixture
 
         $manager->flush();
     }
+
+    public function loadCv(ObjectManager $manager)
+    {
+
+    }
+
+    public function loadExperience(ObjectManager $manager)
+    {
+
+    }
+
+    public function loadFormation(ObjectManager $manager)
+    {
+
+    }
+
 }
