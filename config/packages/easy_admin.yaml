@@ -5,4 +5,6 @@ easy_admin:
         - App\Entity\Experience
         - App\Entity\Formation
         - App\Entity\Skill
+        - App\Entity\User
+        - App\Entity\DefaultConfig
 
