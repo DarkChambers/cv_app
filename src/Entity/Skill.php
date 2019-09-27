@@ -32,6 +32,11 @@ class Skill
      */
     private $cv;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $display_order;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,5 +80,17 @@ class Skill
 
     public function __toString() {
         return $this->getName();
+    }
+
+    public function getDisplayOrder(): ?int
+    {
+        return $this->display_order;
+    }
+
+    public function setDisplayOrder(int $display_order): self
+    {
+        $this->display_order = $display_order;
+
+        return $this;
     }
 }

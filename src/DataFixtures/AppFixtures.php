@@ -30,4 +30,9 @@ class AppFixtures extends Fixture
 
     }
 
+    public function loadUser(ObjectManager $manager)
+    {
+
+    }
+
 }

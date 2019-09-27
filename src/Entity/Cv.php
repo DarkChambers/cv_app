@@ -41,6 +41,7 @@ class Cv
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Skill", mappedBy="cv")
+     * @ORM\OrderBy({"display_order" = "ASC"})
      */
     private $skills;
 

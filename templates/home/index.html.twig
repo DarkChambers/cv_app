@@ -88,54 +88,22 @@
       <div class="h4 text-center mb-4 title">Comp&eacutetences Junior</div>
       <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
        <div class="card-body">
+        {%  for row in cv.skills()|batch(2) %}
+         {% if (row is defined) and (row is not null) %}
         <div class="row">
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">HTML - CSS - JavaScript</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+         {% for entry in row %}
+          <div class="col-md-6">
+           <div class="progress-container progress-primary"><span class="progress-badge">{{ entry.name }}</span>
+            <div class="progress">
+             <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ entry.level }}%;"></div><span class="progress-value">{{ entry.level }}%</span>
+            </div>
            </div>
           </div>
-         </div>
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">Android Studio</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-           </div>
-          </div>
-         </div>
+         {% endfor %}
         </div>
-        <div class="row">
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">Symfony 4 - PHP 7</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-           </div>
-          </div>
-         </div>
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">Unity 3D</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-           </div>
-          </div>
-         </div>
-        </div>
-        <div class="row">
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">ASP.NET MVC - C#</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-           </div>
-          </div>
-         </div>
-         <div class="col-md-6">
-          <div class="progress-container progress-primary"><span class="progress-badge">Photoshop - Lightroom</span>
-           <div class="progress">
-            <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-           </div>
-          </div>
-         </div>
-        </div>
+         {% endif %}
+        {% endfor %}
+
        </div>
       </div>
      </div>
