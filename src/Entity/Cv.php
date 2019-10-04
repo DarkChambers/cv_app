@@ -36,6 +36,7 @@ class Cv
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Formation", mappedBy="cv")
+     * @ORM\OrderBy({"display_order" = "ASC"})
      */
     private $formations;
 
@@ -44,6 +45,11 @@ class Cv
      * @ORM\OrderBy({"display_order" = "ASC"})
      */
     private $skills;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Profil", mappedBy="cv", cascade={"persist", "remove"})
+     */
+    private $profil;
 
     public function __construct()
     {
@@ -172,6 +178,23 @@ class Cv
             if ($skill->getCv() === $this) {
                 $skill->setCv(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(Profil $profil): self
+    {
+        $this->profil = $profil;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $profil->getCv()) {
+            $profil->setCv($this);
         }
 
         return $this;

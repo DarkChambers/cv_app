@@ -6,6 +6,7 @@ use App\Entity\Cv;
 use App\Entity\DefaultConfig;
 use App\Entity\Experience;
 use App\Entity\Formation;
+use App\Entity\Profil;
 use App\Entity\Skill;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -29,6 +30,7 @@ class AppFixtures extends Fixture
         $this->loadExperience($manager);
         $this->loadFormation($manager);
         $this->loadSkill($manager);
+        $this->loadProfil($manager);
         $this->loadDefaultConfig($manager);
 
 
@@ -78,6 +80,7 @@ class AppFixtures extends Fixture
         $formation->setContent("Titre porfessionnel de Concepteur Développeur d'applications Niveau II");
         $formation->setDegree("Bac+4");
         $formation->setSchool("M2ii Formation");
+        $formation->setDisplayOrder(1);
 
         $manager->persist($formation);
 
@@ -89,6 +92,7 @@ class AppFixtures extends Fixture
         $user=new User();
         $user->setEmail('monteilchristophe@live.fr');
         $user->setIsActive(true);
+        $user->addRole('ROLE_ADMIN');
         $plainPassword='adminTest';
         $password = $this->passwordEncoder->encodePassword($user, $plainPassword);
         $user->setPassword($password);
@@ -108,7 +112,21 @@ class AppFixtures extends Fixture
         $skill->setDisplayOrder(1);
 
         $manager->persist($skill);
+    }
 
+    public function loadProfil(ObjectManager $manager)
+    {
+        $profil= new Profil();
+        $profil->setCv($this->getReference('CV'));
+        $profil->setFirstName("Christophe");
+        $profil->setLastName("Monteil");
+        $profil->setAge(45);
+        $profil->setEmail("monteilchristophe@live.fr");
+        $profil->setPhone("06 04 46 89 04");
+        $profil->setAdress("1, rue des viviers. 27600 Champenard");
+        $profil->setLanguage("Français, Anglais");
+        $profil->setAbout("Bonjour ! Je suis Christophe Monteil. Concepteur et développeur d'applications.</br>Je peux vous aider à la concrétiser de vos projets.</br>Application Web, Desktop ou mobile, jeux : je suis à votre écoute !</br>");
 
+        $manager->persist($profil);
     }
 }

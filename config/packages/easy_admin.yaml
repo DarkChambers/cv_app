@@ -26,3 +26,6 @@ easy_admin:
         DefaultConfig:
             class: App\Entity\DefaultConfig
 
+        Profil:
+            class: App\Entity\Profil
+

@@ -29,7 +29,7 @@
        <div class="container">
         <div class="content-center">
          <div class="cc-profile-image"><a href="#"><img src="images/christophe.jpg" alt="Image"/></a></div>
-         <div class="h2 title">Monteil Christophe</div>
+         <div class="h2 title">{{ cv.profil.firstName }} {{ cv.profil.LastName }}</div>
          <p class="category text-white">{% if (cv.title is defined) and (cv.title is not null) %}{{ cv.title }}{% endif %}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez-moi !</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
         </div>
        </div>
@@ -48,10 +48,7 @@
         <div class="col-lg-6 col-md-12">
          <div class="card-body">
           <div class="h4 mt-0 title">&#192 propos</div>
-          <p>Bonjour ! Je suis Christophe Monteil. Concepteur et développeur d'applications.</p>
-          <p>Je serai heureux de participer à la concrétisation de vos projets de développement.</p>
-          <p> Front-End, Back-end, Desktop ou mobile, jeux : tout est le bienvenu !</p>
-          <p>Sensibilisé à l'écologie et au bien-être social, participer à des projets allant dans ce sens serait un plus. <p>
+          <p>{{ cv.profil.about | raw }}</p>
            </div>
         </div>
         <div class="col-lg-6 col-md-12">
@@ -59,23 +56,23 @@
           <div class="h4 mt-0 title">Profil</div>
           <div class="row">
            <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-           <div class="col-sm-8">45</div>
+           <div class="col-sm-8">{{ cv.profil.age }}</div>
           </div>
           <div class="row mt-3">
            <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-           <div class="col-sm-8">monteilchristophe@live.fr</div>
+           <div class="col-sm-8">{{ cv.profil.email }}</div>
           </div>
           <div class="row mt-3">
            <div class="col-sm-4"><strong class="text-uppercase">T&eacutel&eacutephone:</strong></div>
-           <div class="col-sm-8">06.04.46.89.04</div>
+           <div class="col-sm-8">{{ cv.profil.phone }}</div>
           </div>
           <div class="row mt-3">
            <div class="col-sm-4"><strong class="text-uppercase">Adresse:</strong></div>
-           <div class="col-sm-8">1, rue des Viviers - 27200 Champenard</div>
+           <div class="col-sm-8">{{ cv.profil.adress }}</div>
           </div>
           <div class="row mt-3">
            <div class="col-sm-4"><strong class="text-uppercase">Langes:</strong></div>
-           <div class="col-sm-8">Français, Anglais</div>
+           <div class="col-sm-8">{{ cv.profil.language }}</div>
           </div>
          </div>
         </div>
@@ -116,7 +113,7 @@
         <div class="nav-align-center">
          <ul class="nav nav-pills nav-pills-primary" role="tablist">
           <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development" role=""><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role=""><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>
+{#          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role=""><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>#}
           <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role=""><i class="fa fa-camera" aria-hidden="true"></i></a></li>
          </ul>
         </div>
@@ -161,44 +158,44 @@
          </div>
         </div>
        </div>
-       <div class="tab-pane" id="graphic-design" role="tabpanel">
-        <div class="ml-auto mr-auto">
-         <div class="row">
-          <div class="col-md-6">
-           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-             <figure class="cc-effect"><img src="images/graphic-design-1.jpg" alt="Image"/>
-              <figcaption>
-               <div class="h4">Triangle Pattern</div>
-               <p>Graphic Design</p>
-              </figcaption>
-             </figure></a></div>
-           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-             <figure class="cc-effect"><img src="images/graphic-design-2.jpg" alt="Image"/>
-              <figcaption>
-               <div class="h4">Abstract Umbrella</div>
-               <p>Graphic Design</p>
-              </figcaption>
-             </figure></a></div>
-          </div>
-          <div class="col-md-6">
-           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-             <figure class="cc-effect"><img src="images/graphic-design-3.jpg" alt="Image"/>
-              <figcaption>
-               <div class="h4">Cube Surface Texture</div>
-               <p>Graphic Design</p>
-              </figcaption>
-             </figure></a></div>
-           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-             <figure class="cc-effect"><img src="images/graphic-design-4.jpg" alt="Image"/>
-              <figcaption>
-               <div class="h4">Abstract Line</div>
-               <p>Graphic Design</p>
-              </figcaption>
-             </figure></a></div>
-          </div>
-         </div>
-        </div>
-       </div>
+{#       <div class="tab-pane" id="graphic-design" role="tabpanel">#}
+{#        <div class="ml-auto mr-auto">#}
+{#         <div class="row">#}
+{#          <div class="col-md-6">#}
+{#           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">#}
+{#             <figure class="cc-effect"><img src="images/graphic-design-1.jpg" alt="Image"/>#}
+{#              <figcaption>#}
+{#               <div class="h4">Triangle Pattern</div>#}
+{#               <p>Graphic Design</p>#}
+{#              </figcaption>#}
+{#             </figure></a></div>#}
+{#           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">#}
+{#             <figure class="cc-effect"><img src="images/graphic-design-2.jpg" alt="Image"/>#}
+{#              <figcaption>#}
+{#               <div class="h4">Abstract Umbrella</div>#}
+{#               <p>Graphic Design</p>#}
+{#              </figcaption>#}
+{#             </figure></a></div>#}
+{#          </div>#}
+{#          <div class="col-md-6">#}
+{#           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">#}
+{#             <figure class="cc-effect"><img src="images/graphic-design-3.jpg" alt="Image"/>#}
+{#              <figcaption>#}
+{#               <div class="h4">Cube Surface Texture</div>#}
+{#               <p>Graphic Design</p>#}
+{#              </figcaption>#}
+{#             </figure></a></div>#}
+{#           <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">#}
+{#             <figure class="cc-effect"><img src="images/graphic-design-4.jpg" alt="Image"/>#}
+{#              <figcaption>#}
+{#               <div class="h4">Abstract Line</div>#}
+{#               <p>Graphic Design</p>#}
+{#              </figcaption>#}
+{#             </figure></a></div>#}
+{#          </div>#}
+{#         </div>#}
+{#        </div>#}
+{#       </div>#}
        <div class="tab-pane" id="Photography" role="tabpanel">
         <div class="ml-auto mr-auto">
          <div class="row">
@@ -395,11 +392,11 @@
             <div class="col-md-6">
              <div class="card-body">
               <p class="mb-0"><strong>Adresse </strong></p>
-              <p class="pb-2">1, Rue des viviers - 27600 Champenard</p>
+              <p class="pb-2">{{ cv.profil.adress }}</p>
               <p class="mb-0"><strong>T&eacutel&eacutephone</strong></p>
-              <p class="pb-2">06.04.46.89.04</p>
+              <p class="pb-2">{{ cv.profil.phone }}</p>
               <p class="mb-0"><strong>Email</strong></p>
-              <p>monteilchristophe@live.fr</p>
+              <p>{{ cv.profil.email }}</p>
              </div>
             </div>
            </div>
@@ -413,9 +410,8 @@
   </div>
   <footer class="footer">
    <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-   <div class="h4 title text-center">Monteil Christophe</div>
-   <div class="text-center text-muted">
-    <p>&copy; Monteil Christophe</p>
+   <div class="h4 title text-center">{{ cv.profil.firstName }} {{ cv.profil.lastName }}">
+    <p>&copy; {{ cv.profil.firstName }} {{ cv.profil.lastName }}</p>
    </div>
   </footer>
  {%  endblock body %}
