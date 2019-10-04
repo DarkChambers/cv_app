@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+    app.path.people_images: /uploads/images/people
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -13,9 +15,13 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+
+
     App\:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -29,3 +35,5 @@ services:
         class: Snilius\Twig\SortByFieldExtension
         tags:
             - { name: twig.extension }
+
+

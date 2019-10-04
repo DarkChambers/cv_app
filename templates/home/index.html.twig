@@ -297,44 +297,72 @@
       <div class="card" data-aos="zoom-in">
        <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
         <ol class="carousel-indicators">
-         <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
-         <li data-target="#cc-Indicators" data-slide-to="1"></li>
-         <li data-target="#cc-Indicators" data-slide-to="2"></li>
+         {% set foo = 0 %}
+         {% for reference in cv.referencs %}
+          {% if (reference is defined) and (reference is not null) %}
+           {% if foo<1 %}
+            <li class="active" data-target="#cc-Indicators" data-slide-to="{{ foo }}"></li>
+           {% else %}
+            <li data-target="#cc-Indicators" data-slide-to="{{ foo }}"></li>
+           {% endif %}
+           {% set foo=foo+1 %}
+          {% endif %}
+         {% endfor %}
         </ol>
         <div class="carousel-inner">
+         {% set foo = 0 %}
+         {% for reference in cv.referencs %}
+         {% if (reference is defined) and (reference is not null) %}
+         {% if foo<1 %}
          <div class="carousel-item active">
           <div class="row">
-           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-1.jpg" alt="Image"/>
-            <div class="h5 pt-2">Caroline Schmidt</div>
-            <p class="category">Caisse d'épargne</p>
+           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="{{ asset('uploads/images/people/'~ reference.image ~ '') }}" alt="Image"/>
+            <div class="h5 pt-2">{{ reference.fullName }}</div>
+            <p class="category">{{ reference.entreprise }}</p>
            </div>
            <div class="col-lg-10 col-md-9">
-            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
+            <p>{{ reference.content }}</p>
            </div>
           </div>
          </div>
-         <div class="carousel-item">
-          <div class="row">
-           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-2.jpg" alt="Image"/>
-            <div class="h5 pt-2">Pierre Kreidl</div>
-            <p class="category">E.Leclerc</p>
+         {% set foo=foo+1 %}
+         {% else %}
+            <div class="carousel-item ">
+             <div class="row">
+              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="{{ asset('uploads/images/people/'~ reference.image ~ '') }}" alt="Image"/>
+               <div class="h5 pt-2">{{ reference.fullName }}</div>
+               <p class="category">{{ reference.entreprise }}</p>
+                </div>
+              <div class="col-lg-10 col-md-9">
+               <p>{{ reference.content }}</p>
+              </div>
              </div>
-           <div class="col-lg-10 col-md-9">
-            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
-           </div>
-          </div>
-         </div>
-         <div class="carousel-item">
-          <div class="row">
-           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-3.jpg" alt="Image"/>
-            <div class="h5 pt-2">Gratien Hamadi</div>
-            <p class="category">M2ii Formations.</p>
-           </div>
-           <div class="col-lg-10 col-md-9">
-            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
-           </div>
-          </div>
-         </div>
+            </div>
+         {% endif %}
+         {% endif %}
+         {% endfor %}
+{#         <div class="carousel-item ">#}
+{#          <div class="row">#}
+{#           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-2.jpg" alt="Image"/>#}
+{#            <div class="h5 pt-2">Pierre Kreidl</div>#}
+{#            <p class="category">E.Leclerc</p>#}
+{#             </div>#}
+{#           <div class="col-lg-10 col-md-9">#}
+{#            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>#}
+{#           </div>#}
+{#          </div>#}
+{#         </div>#}
+{#         <div class="carousel-item">#}
+{#          <div class="row">#}
+{#           <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-3.jpg" alt="Image"/>#}
+{#            <div class="h5 pt-2">Gratien Hamadi</div>#}
+{#            <p class="category">M2ii Formations.</p>#}
+{#           </div>#}
+{#           <div class="col-lg-10 col-md-9">#}
+{#            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>#}
+{#           </div>#}
+{#          </div>#}
+{#         </div>#}
         </div>
        </div>
       </div>
@@ -410,8 +438,8 @@
   </div>
   <footer class="footer">
    <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-   <div class="h4 title text-center">{{ cv.profil.firstName }} {{ cv.profil.lastName }}">
-    <p>&copy; {{ cv.profil.firstName }} {{ cv.profil.lastName }}</p>
+   <div class="h4 title text-center">{{ cv.profil.firstName }} {{ cv.profil.lastName }}
+
    </div>
   </footer>
  {%  endblock body %}

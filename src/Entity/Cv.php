@@ -51,11 +51,17 @@ class Cv
      */
     private $profil;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reference", mappedBy="cv")
+     */
+    private $referencs;
+
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
         $this->formations = new ArrayCollection();
         $this->skills = new ArrayCollection();
+        $this->referencs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +201,37 @@ class Cv
         // set the owning side of the relation if necessary
         if ($this !== $profil->getCv()) {
             $profil->setCv($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reference[]
+     */
+    public function getReferencs(): Collection
+    {
+        return $this->referencs;
+    }
+
+    public function addReferenc(Reference $referenc): self
+    {
+        if (!$this->referencs->contains($referenc)) {
+            $this->referencs[] = $referenc;
+            $referenc->setCv($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReferenc(Reference $referenc): self
+    {
+        if ($this->referencs->contains($referenc)) {
+            $this->referencs->removeElement($referenc);
+            // set the owning side to null (unless already changed)
+            if ($referenc->getCv() === $this) {
+                $referenc->setCv(null);
+            }
         }
 
         return $this;

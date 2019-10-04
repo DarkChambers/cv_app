@@ -29,3 +29,21 @@ easy_admin:
         Profil:
             class: App\Entity\Profil
 
+        Reference:
+            class: App\Entity\Reference
+            new:
+                fields:
+                    - 'cv'
+                    - 'fullName'
+                    - 'content'
+                    - 'entreprise'
+                    - {property: 'imageFile', type: 'vich_image'}
+            list:
+                fields:
+                    - 'cv'
+                    - 'fullName'
+                    - { property: 'image', type: 'image', base_path: '%app.path.people_images%' }
+                    - 'content'
+                    - 'entreprise'
+
+
