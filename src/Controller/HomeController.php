@@ -28,8 +28,11 @@ class HomeController extends AbstractController{
         // second get all information from the CV
 
         $repository = $this->getDoctrine()->getRepository(Cv::class);
-        //$cv =new Cv();
-        $cv = $repository->find($config->getDefaultCv());
+        $cv =new Cv();
+        if ($config!=null){
+            $cv = $repository->find($config->getDefaultCv());
+        }
+
 
         return $this->render('home\index.html.twig',["cv"=>$cv]);
     }

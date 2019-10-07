@@ -1,5 +1,6 @@
  {% extends 'base.html.twig' %}
  {% block body %}
+  {%  if (cv.profil is defined) and (cv.profil is not null)   %}
   <header>
    <div class="profile-page sidebar-collapse">
     <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
@@ -203,15 +204,15 @@
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-1.jpg" alt="Image"/>
               <figcaption>
-               <div class="h4">Photoshop</div>
-               <p>Montage</p>
+               <div class="h4">LightRoom</div>
+               <p>Black Works</p>
               </figcaption>
              </figure></a></div>
            <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
              <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image"/>
               <figcaption>
                <div class="h4">LightRoom</div>
-               <p>Black&White</p>
+               <p>Perspectives</p>
               </figcaption>
              </figure></a></div>
           </div>
@@ -227,7 +228,7 @@
              <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image"/>
               <figcaption>
                <div class="h4">LightRoom</div>
-               <p>Nature</p>
+               <p>Portraits</p>
               </figcaption>
              </figure></a></div>
           </div>
@@ -442,4 +443,5 @@
 
    </div>
   </footer>
+  {% endif %}
  {%  endblock body %}
