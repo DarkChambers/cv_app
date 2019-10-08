@@ -31,12 +31,12 @@
         <div class="content-center">
          <div class="cc-profile-image"><a href="#"><img src="images/christophe.jpg" alt="Image"/></a></div>
          <div class="h2 title">{{ cv.profil.firstName }} {{ cv.profil.LastName }}</div>
-         <p class="category text-white">{% if (cv.title is defined) and (cv.title is not null) %}{{ cv.title }}{% endif %}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez-moi !</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+         <p class="category text-white">{% if (cv.title is defined) and (cv.title is not null) %}{{ cv.title }}{% endif %}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez-moi !</a><a class="btn btn-primary" href="{{ asset('/ressources/MONTEIL_Christophe_CDA.pdf') }}" target="_blank" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
         </div>
        </div>
        <div class="section">
         <div class="container">
-         <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/christophe-monteil-61a575148/" rel="tooltip" title="Suivez-moi Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Instagram"><i class="fa fa-instagram"></i></a></div>
+         <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/christophe-monteil-61a575148/" rel="tooltip" title="Suivez-moi Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Suivez-moi sur Instagram"><i class="fa fa-instagram"></i></a></div>
         </div>
        </div>
       </div>
@@ -56,23 +56,23 @@
          <div class="card-body">
           <div class="h4 mt-0 title">Profil</div>
           <div class="row">
-           <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
+           <div class="col-sm-4"><strong class="text-uppercase">Age :</strong></div>
            <div class="col-sm-8">{{ cv.profil.age }}</div>
           </div>
           <div class="row mt-3">
-           <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+           <div class="col-sm-4"><strong class="text-uppercase">Email :</strong></div>
            <div class="col-sm-8">{{ cv.profil.email }}</div>
           </div>
           <div class="row mt-3">
-           <div class="col-sm-4"><strong class="text-uppercase">T&eacutel&eacutephone:</strong></div>
+           <div class="col-sm-4"><strong class="text-uppercase">T&eacutel&eacutephone :</strong></div>
            <div class="col-sm-8">{{ cv.profil.phone }}</div>
           </div>
           <div class="row mt-3">
-           <div class="col-sm-4"><strong class="text-uppercase">Adresse:</strong></div>
+           <div class="col-sm-4"><strong class="text-uppercase">Adresse :</strong></div>
            <div class="col-sm-8">{{ cv.profil.adress }}</div>
           </div>
           <div class="row mt-3">
-           <div class="col-sm-4"><strong class="text-uppercase">Langes:</strong></div>
+           <div class="col-sm-4"><strong class="text-uppercase">Langues :</strong></div>
            <div class="col-sm-8">{{ cv.profil.language }}</div>
           </div>
          </div>
@@ -282,7 +282,7 @@
            <div class="card-body">
             <div class="h5">{{ formation.title }}</div>
             <p class="category">{{ formation.school }}</p>
-            <p>{{ formation.content }}</p>
+            <p>{{ formation.content |raw }}</p>
            </div>
           </div>
          </div>
@@ -322,7 +322,7 @@
             <p class="category">{{ reference.entreprise }}</p>
            </div>
            <div class="col-lg-10 col-md-9">
-            <p>{{ reference.content }}</p>
+            <p>{{ reference.content |raw }}</p>
            </div>
           </div>
          </div>
@@ -335,7 +335,7 @@
                <p class="category">{{ reference.entreprise }}</p>
                 </div>
               <div class="col-lg-10 col-md-9">
-               <p>{{ reference.content }}</p>
+               <p>{{ reference.content |raw }}</p>
               </div>
              </div>
             </div>
@@ -438,7 +438,7 @@
     </div></div>
   </div>
   <footer class="footer">
-   <div class="container text-center"><a class="cc-facebook btn btn-link" href="https://www.linkedin.com/in/christophe-monteil-61a575148/" target="_blank"><i class="fa fa-linkedin fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+   <div class="container text-center"><a class="cc-facebook btn btn-link" href="https://www.linkedin.com/in/christophe-monteil-61a575148/" target="_blank"><i class="fa fa-linkedin fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
    <div class="h4 title text-center">{{ cv.profil.firstName }} {{ cv.profil.lastName }}
 
    </div>
