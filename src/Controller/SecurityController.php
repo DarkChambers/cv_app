@@ -18,7 +18,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/register")
+     * @Route("/registration", name="registration")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return RedirectResponse|Response
@@ -36,7 +36,7 @@ class SecurityController extends AbstractController
             //Define Active by Default
             $user->setIsActive(true);
             //Add Role Admin by default, has to be change later
-            $user->addRole("ROLE_ADMIN");
+            $user->addRole("ROLE_USER");
             // 4) Persist User
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
