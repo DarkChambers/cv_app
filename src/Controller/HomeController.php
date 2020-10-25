@@ -3,11 +3,8 @@ namespace App\Controller;
 
 use App\Entity\Cv;
 use App\Entity\DefaultConfig;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-
-
 /**
  *
  * @Route("/")
@@ -19,12 +16,8 @@ class HomeController extends AbstractController{
      *
      */
     public function index(){
-
-        // ToDo get all informations from the default CV  and pass it to the view
-
         // first check which cv is define by default
         $config = $this->getDefaultConfig();
-
         // second get all information from the CV
 
         $repository = $this->getDoctrine()->getRepository(Cv::class);
@@ -32,8 +25,6 @@ class HomeController extends AbstractController{
         if ($config!=null){
             $cv = $repository->find($config->getDefaultCv());
         }
-
-
         return $this->render('home\index.html.twig',["cv"=>$cv]);
     }
 
